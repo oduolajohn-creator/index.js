@@ -15,13 +15,6 @@ let movies = [
   { id: 2, title: "The Dark Knight", genre: "Action" }
 ];
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`🎬 Server spinning on port ${PORT}`);
-});
-
-
-
 // 🟢 GET: Fetch all movies
 app.get('/api/movies', (req, res) => {
   res.json(movies);
@@ -56,4 +49,9 @@ app.delete('/api/movies/:id', (req, res) => {
   const id = parseInt(req.params.id);
   movies = movies.filter(m => m.id !== id);
   res.json({ message: `Movie with id ${id} deleted` });
+});
+
+// Start Server
+app.listen(PORT, () => {
+  console.log(`🎬 Server spinning on port ${PORT}`);
 });
